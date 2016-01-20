@@ -1,0 +1,118 @@
+<!--
+Copyright (c) 2015 by Rafael Angel Aznar Aparici (rafaaznar at gmail dot com)
+
+openAUSIAS: The stunning micro-library that helps you to develop easily 
+            AJAX web applications by using Java and jQuery
+openAUSIAS is distributed under the MIT License (MIT)
+Sources at https://github.com/rafaelaznar/
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+-->
+<div class="panel-heading" style="font-family:Oswald , serif;"  ng-include="'js/system/header.html'"></div>
+<div class="panel-body">
+
+
+   
+
+        <h4 class="center-align">ANGULARJS / GOOGLE MAPS Pruebas</h4>
+        <div class="map_container" >
+            <google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options" control="map.control">
+                <markers models="map.markers" coords="'self'" options="'options'" isLabel='true'>
+                </markers>
+            </google-map>
+            <!--<ui-gmap-google-map center='map.center' zoom='map.zoom' draggable="true" options="map.options" control="map.control"><ui-gmap-marker models="map.markers" coords="'self'" options="'options'" isLabel='true'>
+                </ui-gmap-marker></ui-gmap-google-map>-->
+        </div>  
+        <div class="controls center-align">
+            <h5 >Localización actual</h5>
+            <p>
+                <button ng-click="addCurrentLocation()">Localizame</button>                
+            </p>
+            <h5 >Address search</h5>
+            <p>
+                <input type="text" placeholder="Ejemplo:Calle Bolero de Carlet nº 3,Valencia" ng-model="address" style="width: 210px"/>
+                <button ng-click="addAddress()">Buscar</button>    
+            </p>
+           
+            <button ng-click="addMarkerb()">Añadir Aparcamientos Bici</button>
+            <button ng-click="addMarkerc()">Añadir Aparcamientos Moto</button>
+        </div>
+
+
+        <div  class="row" >
+            <h4 class="text-center"> Listado OpenData Aparcamientos Ayuntamiento de Málaga</h4>
+            <div class="col-sm-10 col-sm-offset-1">
+                
+                
+
+                <table class="table table-condensed">
+                    <thead>
+                        <tr class="success">
+                            
+                            <th>Detalle</th>
+                            <th>Tipo</th>
+                            <th>Longitud</th>
+                            <th>Latitud</th>
+                          
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="d in data">
+                            <!--<td>{{d.type}}</td>-->
+                            <td>{{d.properties.Name}}</td>
+                            <!--<td>{{d.properties.Description}}</td>-->
+                            <td>{{d.geometry.type}}</td>
+                            <td>{{d.geometry.coordinates[0]}}</td>
+                            <td>{{d.geometry.coordinates[1]}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="col-sm-10 col-sm-offset-1">
+                
+                <table class="table table-condensed">
+                    <thead>
+                        <tr class="success">
+                            
+                           <th>Detalle</th>
+                            <th>Tipo</th>
+                            <th>Longitud</th>
+                            <th>Latitud</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="d in moto">
+                            <!--<td>{{d.type}}</td>-->
+                            <td>{{d.properties.Name}}</td>
+                            <!--<td>{{d.properties.Description}}</td>-->
+                            <td>{{d.geometry.type}}</td>
+                            <td>{{d.geometry.coordinates[0]}}</td>
+                            <td>{{d.geometry.coordinates[1]}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+<div class="panel-footer" style="font-family: Questrial, serif;" ng-include="'js/system/footer.html'"></div>

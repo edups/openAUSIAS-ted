@@ -30,7 +30,6 @@
 //var appName = 'AjaxStockNg';
 
 var openAusias = angular.module('myApp', [
-    'google-maps',
     'ngRoute',
     'Filters',
     'Services',
@@ -39,8 +38,6 @@ var openAusias = angular.module('myApp', [
     'usuarioControllers',    
     'tipodocumentoControllers',
     'tipousuarioControllers',
-    'opendataControllers',
-    
     'ui.bootstrap',
     'ngSanitize' //http://stackoverflow.com/questions/9381926/insert-html-into-view-using-angularjs
 ]);
@@ -69,10 +66,7 @@ openAusias.config(['$routeProvider', function ($routeProvider) {
         
         
         
-        $routeProvider.when('/tipousuario/selection/:page/:rpp', {templateUrl: 'js/tipousuario/selection.html', controller: 'TipousuarioSelectionController'});
-        //------------
-        $routeProvider.when('/opendata/map/', {templateUrl: 'js/opendata/map.html', controller: 'OpendataMapController'});
-
+        $routeProvider.when('/tipousuario/selection/:page/:rpp', {templateUrl: 'js/tipousuario/selection.html', controller: 'TipousuarioSelectionController'});        
         //------------
         $routeProvider.otherwise({redirectTo: '/'});
 
@@ -86,5 +80,4 @@ var moduloUsuario = angular.module('usuarioControllers', []);
 var moduloDocumento = angular.module('documentoControllers', []);
 var moduloTipodocumento = angular.module('tipodocumentoControllers', []);
 var moduloTipousuario = angular.module('tipousuarioControllers', []);
-var moduloOpendata = angular.module('opendataControllers', []);
 
