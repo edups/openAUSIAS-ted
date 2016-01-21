@@ -1,0 +1,38 @@
+/*html, body, div.map_container {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+
+}*/
+
+div.map_container {
+   position: absolute;
+   float: left;
+    width: 75%;
+    height: 8%;
+    z-index: 100;
+}
+
+.angular-google-map-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;    
+}
+
+div.controls {
+    float: right;
+    width: 30%;
+}
+
+.markerlabel {
+    font-weight: bold;
+    font-size: 13px;
+    border: 1px solid #333;
+    padding: 2px;
+    background:#f7ffb9;
+    color: #333;
+}
+
+

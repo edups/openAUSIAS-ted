@@ -48,8 +48,10 @@ configuration = {
         $('<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>').appendTo("head");
         $('<link href="http://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css"/>').appendTo("head");
         $('<link href="http://fonts.googleapis.com/css?family=Questrial" rel="stylesheet" type="text/css"/>').appendTo("head");
+//        $('<link href="css/main/main.css" rel="stylesheet" type="text/css"/>').appendTo("head");
         $('<link href="css/main/main.css" rel="stylesheet" type="text/css"/>').appendTo("head");
-        $('<link href="css/main/main.css" rel="stylesheet" type="text/css"/>').appendTo("head");
+        $('<link href="css/main/style.css" rel="stylesheet" type="text/css"/>').appendTo("head");
+        
         
     }
 }
