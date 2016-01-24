@@ -1,31 +1,20 @@
-/*html, body, div.map_container {
-    height: 100%;
-    width: 100%;
-    margin: 0px;
-
-}*/
-
-div.map_container {
-   position: absolute;
-   float: left;
-    width: 75%;
-    height: 8%;
-    z-index: 100;
+mapandcontroler{
+    width:100%;
+   
 }
-
-.angular-google-map-container {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;    
+.angular-google-map-container { 
+    min-height: 500px; 
 }
-
-div.controls {
-    float: right;
-    width: 30%;
+.map_container{
+    width: 70%;
+    height: 40%;
+    float:left
 }
-
+.controls{
+    float:right;
+    width:30%;
+    padding-left: 5%;
+}
 .markerlabel {
     font-weight: bold;
     font-size: 13px;
@@ -34,5 +23,3 @@ div.controls {
     background:#f7ffb9;
     color: #333;
 }
-
-

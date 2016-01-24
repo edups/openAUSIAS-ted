@@ -31,7 +31,8 @@ THE SOFTWARE.
 
    
 
-        <h4 class="center-align">ANGULARJS / GOOGLE MAPS Pruebas</h4>
+        <h2 class="text-center primary">ANGULARJS / GOOGLE MAPS / OPEN DATA</h2>
+        <div class="container mapandcontroler">
         <div class="map_container" >
             <google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options" control="map.control">
                 <markers models="map.markers" coords="'self'" options="'options'" isLabel='true'>
@@ -40,29 +41,31 @@ THE SOFTWARE.
             <!--<ui-gmap-google-map center='map.center' zoom='map.zoom' draggable="true" options="map.options" control="map.control"><ui-gmap-marker models="map.markers" coords="'self'" options="'options'" isLabel='true'>
                 </ui-gmap-marker></ui-gmap-google-map>-->
         </div>  
-        <div class="controls center-align">
-            <h5 >Localización actual</h5>
-            <p>
-                <button ng-click="addCurrentLocation()">Localizame</button>                
+        <div class="controls panel">
+            <h5 class="panel-heading">Localización actual</h5>
+            <p class="panel-body">
+                <button ng-click="addCurrentLocation()" ><i class="fa fa-fw fa-map-marker"></i>Localízame</button><br/><br/>                
             </p>
-            <h5 >Address search</h5>
+            <h5 class="panel-heading">Buscar dirección</h5>
             <p>
                 <input type="text" placeholder="Ejemplo:Calle Bolero de Carlet nº 3,Valencia" ng-model="address" style="width: 210px"/>
-                <button ng-click="addAddress()">Buscar</button>    
+                <button ng-click="addAddress()"> <i class="fa fa-fw fa-search"></i>Buscar</button><br/><br/>    
             </p>
-           
-            <button ng-click="addMarkerb()">Añadir Aparcamientos Bici</button>
-            <button ng-click="addMarkerc()">Añadir Aparcamientos Moto</button>
+           <h5 class="panel-heading">Añadir Marcadores</h5>
+            <button ng-click="addMarkerb()"><i class="fa fa-fw fa-bicycle"></i> Añadir Aparcamientos Bici</button><br/><br/>
+            <button ng-click="addMarkerc()"><i class="fa fa-fw fa-motorcycle"></i> Añadir Aparcamientos Moto</button><br/><br/>
+            <button ng-click="addMarkerd()"><i class="fa fa-fw fa-wheelchair"></i> Añadir Aparcamientos Minusválidos</button><br/><br/>
+            <button ng-click="removeMarkers()"><i class="fa fa-fw fa-remove"></i> Quitar Marcadores</button><br/><br/>
         </div>
-
+            </div>
 
         <div  class="row" >
+            <br/><br/>
             <h4 class="text-center"> Listado OpenData Aparcamientos Ayuntamiento de Málaga</h4>
-            <div class="col-sm-10 col-sm-offset-1">
-                
-                
+            <br/><br/>
+            <div class="col-sm-6 ">
 
-                <table class="table table-condensed">
+                <table class="table table-responsive">
                     <thead>
                         <tr class="success">
                             
@@ -87,9 +90,9 @@ THE SOFTWARE.
                 </table>
 
             </div>
-            <div class="col-sm-10 col-sm-offset-1">
+            <div class="col-sm-6">
                 
-                <table class="table table-condensed">
+                <table class="table table-responsive">
                     <thead>
                         <tr class="success">
                             
@@ -99,7 +102,7 @@ THE SOFTWARE.
                             <th>Latitud</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                         <tr ng-repeat="d in moto">
                             <!--<td>{{d.type}}</td>-->
                             <td>{{d.properties.Name}}</td>
@@ -108,6 +111,31 @@ THE SOFTWARE.
                             <td>{{d.geometry.coordinates[0]}}</td>
                             <td>{{d.geometry.coordinates[1]}}</td>
 
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            
+                     <div class="col-sm-6">
+               
+                <table class="table table-responsive">
+                    <thead>
+                        <tr class="success">
+                            <th>Detalle</th>
+                            <th>Tipo</th>
+                            <th>Longitud</th>
+                            <th>Latitud</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="d in reducida">
+                            <!--<td>{{d.type}}</td>-->
+                            <td>{{d.properties.Name}}</td>
+                            <!--<td>{{d.properties.Description}}</td>-->
+                            <td>{{d.geometry.type}}</td>
+                            <td>{{d.geometry.coordinates[0]}}</td>
+                            <td>{{d.geometry.coordinates[1]}}</td>
                         </tr>
                     </tbody>
                 </table>

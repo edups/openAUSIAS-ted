@@ -47,17 +47,17 @@ moduloOpendata.controller('OpendataMapController', ['MarkerCreatorService', '$sc
         };
 
 
-        MarkerCreatorService.createByCoords(39.2329533, -0.5241572, function (marker) {
-            marker.options.labelContent = 'Este es mi pueblo';
-            $scope.carletMarker = marker;
+        MarkerCreatorService.createByCoords(39.447829, -0.368581, function (marker) {
+            marker.options.labelContent = 'CIPFP AUSIAS MARCH';
+            $scope.cipfpMarker = marker;
         });
 
         $scope.address = '';
 
         $scope.map = {
             center: {
-                latitude: $scope.carletMarker.latitude,
-                longitude: $scope.carletMarker.longitude
+                latitude: $scope.cipfpMarker.latitude,
+                longitude: $scope.cipfpMarker.longitude
             },
             zoom: 12,
             markers: [],
@@ -67,7 +67,7 @@ moduloOpendata.controller('OpendataMapController', ['MarkerCreatorService', '$sc
             }
         };
 
-        $scope.map.markers.push($scope.carletMarker);
+        $scope.map.markers.push($scope.cipfpMarker);
 
         $scope.addMarker = function (latitude, longitude) {
 
@@ -101,6 +101,10 @@ moduloOpendata.controller('OpendataMapController', ['MarkerCreatorService', '$sc
             $scope.map.control.refresh({latitude: marker.latitude,
                 longitude: marker.longitude});
         }
+        
+        $scope.removeMarkers = function() {
+                $scope.map.markers = [];
+            }
 
         //URL JSON BICIS
         var url = "http://datosabiertos.malaga.eu/recursos/transporte/trafico/poi_apbicis.geojson";
@@ -152,6 +156,31 @@ moduloOpendata.controller('OpendataMapController', ['MarkerCreatorService', '$sc
             };
 
 
+        });
+        
+                    //JSON Movilidad Reducida
+        var urlb = "http://datosabiertos.malaga.eu/recursos/transporte/trafico/poi_pmr.geojson";
+
+        $http.get(urlb, 'GET', '').then(function (data) {
+            $scope.reducida = data.data.features;
+
+
+            $scope.addMarkerd = function () {
+                
+                for (var i = 0,l = data.data.features.length; i < l; i++) {
+                     var latitude = $scope.reducida[i].geometry.coordinates[1];
+                var longitude = $scope.reducida[i].geometry.coordinates[0];
+                MarkerCreatorService.createByCoords(latitude, longitude, function (marker) {
+//                    marker.options.labelContent = 'Aparcamiento Minusválidos '+i;
+                    marker.options.icon='https://maps.google.com/mapfiles/ms/icons/wheel_chair_accessible.png';
+                    $scope.map.markers.push(marker);
+                    refresh(marker);
+                });
+                }
+               
+            };
+        
+        
         });
 
     }]);
