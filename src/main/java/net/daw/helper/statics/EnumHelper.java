@@ -32,7 +32,7 @@ public class EnumHelper {
 
         Empresa,
         Alumno,
-        Profesor
+        Professor
     };
 
 }
